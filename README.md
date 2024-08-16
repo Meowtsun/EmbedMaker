@@ -1,6 +1,6 @@
 # EmbedMaker
 Discord.js Embedbuilder in luau, made to be usable within Roblox Studio<br/>
-you can find .rbxm file [Here]()<br/>
+you can find .rbxm file [Here](https://github.com/Meowtsun/EmbedMaker/releases)<br/>
 
 Note that few things have been changed:<br/>
 - SetTimestamp
