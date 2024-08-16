@@ -33,3 +33,8 @@ local embed = EmbedMaker.new()
 print(embed.Data)
 HttpService:PostAsync(http, embed:ToJSON())
 ```
+
+### Results
+![image](https://github.com/user-attachments/assets/d600a41b-ac11-44b1-b0fd-210763b3df6a)
+
+
