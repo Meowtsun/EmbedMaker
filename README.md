@@ -1,5 +1,5 @@
 # EmbedMaker
-Discord Embedbuilder.js copy, made to be usable within Roblox Studio<br/>
+Discord Embedbuilder.js in luau, made to be usable within Roblox Studio<br/>
 you can find .rbxm file [Here]()<br/>
 
 Note that few things have been changed:<br/>
