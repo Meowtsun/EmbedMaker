@@ -19,8 +19,16 @@
 							...
 						}
 					]
+					
+		EmbedMaker:SetValueFields(...: string) -> EmbedMaker
+			- Appends fields with only value to the embed
+				{name = '', value = ...}
 				
-		EmbedMaker:AddFields(value: field) -> EmbedMaker
+		EmbedMaker:AddValueFields(...: string) -> EmbedMaker
+			- Appends fields with only value to the embed
+				{name = '', value = ...}
+				
+		EmbedMaker:AddFields(...: field) -> EmbedMaker
 			- Appends fields to the embed
 			
 		EmbedMaker:SetAuthor(value: author) -> EmbedMaker
@@ -192,7 +200,47 @@ function EmbedMaker.ToJSON(self, excludeHeader)
 end
 
 
-EmbedMaker.AddFields = composeAddonMethod('fields')
+function EmbedMaker.AddFields(self, ...)
+	if self.fields == nil then
+		rawset(self, 'fields', {})
+	end
+	for _, field in {...} do
+		table.insert(self.fields, field)
+	end
+	return self
+end
+
+
+function EmbedMaker.AddValueFields(self, ...)
+	if self.fields == nil then
+		rawset(self, 'fields', {})
+	end
+	for _, text in {...} do
+		table.insert(self.fields, {
+			name = '', 
+			value = text,
+		})
+	end
+	return self
+end
+
+
+
+function EmbedMaker.SetValueFields(self, ...)
+	local fields = {}
+	
+	for _, text in {...} do
+		table.insert(fields, {
+			name = '', 
+			value = text,
+		})
+	end
+	
+	rawset(self, 'fields', fields)
+	return self
+end
+
+
 EmbedMaker.SetAuthor = composeMethod('author')
 EmbedMaker.SetColor = composeMethod('color', packColor3)
 EmbedMaker.SetDescription = composeMethod('description')
@@ -230,22 +278,28 @@ export type footer = {
 export type EmbedMaker = {
 	Data: EmbedMaker,
 	
-	AddFields: composedMethod<EmbedMaker, field>,
-	SetAuthor: composedMethod<EmbedMaker, author>,
-	SetColor: composedMethod<EmbedMaker, Color3>,
-	SetDescription: composedMethod<EmbedMaker, string>,
+	AddValueFields: (self: EmbedMaker, ...string) -> (EmbedMaker),
+	SetValueFields: (self: EmbedMaker, ...string) -> (EmbedMaker),
+	
+	AddFields: (self: EmbedMaker, ...field) -> (EmbedMaker),
 	SetFields: composedMethod<EmbedMaker, {field}>,
-	SetFooter: composedMethod<EmbedMaker, footer>,
+	SpliceFields: (self: EmbedMaker, index: number, deleteCount: number?, field: field) -> (),
+	
 	SetImage: composedImageMethod<EmbedMaker, string, string?, number?, number?>,
 	SetThumbnail: composedImageMethod<EmbedMaker, string, string?, number?, number?>,
 	SetTimestamp: composedMethod<EmbedMaker, number | DateTime?>,
 	SetTitle: composedMethod<EmbedMaker, string>,
 	SetUrl: composedMethod<EmbedMaker, string>,
+	SetAuthor: composedMethod<EmbedMaker, author>,
+	SetColor: composedMethod<EmbedMaker, Color3>,
+	SetDescription: composedMethod<EmbedMaker, string>,
+	SetFooter: composedMethod<EmbedMaker, footer>,
 	
-	SpliceFields: (self: EmbedMaker, index: number, deleteCount: number?, field: field) -> (),
 	ToJSON: (self: EmbedMaker, excludeHeader: boolean?) -> (string),
 	
 }
 
 
-return Module
+return Module :: {
+	new: () -> EmbedMaker,
+}
