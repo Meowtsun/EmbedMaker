@@ -17,6 +17,10 @@ you can get the model directly from [Creator Store](https://create.roblox.com/st
 
 if you need specific versions you can look into [Releases](https://github.com/Meowtsun/EmbedMaker/releases)
 
+#### Wally
+
+you can install using Wally `meowtsun/embedmaker@1.2.0`
+
 ---
 
 ### Usage
@@ -108,17 +112,17 @@ Builder for full embeds, allowing setting of author, footer, fields, images, col
 - `UpdateAuthor(author: Author): EmbedBuilder` – Updates the author without clearing other fields.
 - `UpdateFooter(footer: Footer): EmbedBuilder` – Updates the footer without clearing other fields.
 
-**Properties:**  
+**Properties:**
 
-- `author: Author?`  
-- `color: Color3?`  
-- `description: string?`  
-- `fields: {Field}`  
-- `footer: Footer?`  
-- `image: string?`  
-- `thumbnail: string?`  
-- `timestamp: number?`  
-- `title: string?`  
+- `author: Author?`
+- `color: Color3?`
+- `description: string?`
+- `fields: {Field}`
+- `footer: Footer?`
+- `image: string?`
+- `thumbnail: string?`
+- `timestamp: number?`
+- `title: string?`
 - `url: string?`
 
 <h4 id="fieldbuilder">FieldBuilder</h4>
