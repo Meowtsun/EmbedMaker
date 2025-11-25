@@ -1,4 +1,4 @@
-# EmbedMaker `v1.2`
+# EmbedMaker `v1.2.0`
 
 ---
 
