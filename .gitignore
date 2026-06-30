@@ -1,0 +1,7 @@
+# roblox exports
+*.rbxm
+*.rbxl
+*.rbxlx
+
+# One-time use personal tools
+InitCLI.lua
