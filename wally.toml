@@ -1,0 +1,10 @@
+[package]
+name = "meowtsun/embedmaker"
+description = "Discord.js Embedbuilder in luau for Roblox Studio"
+version = "1.2.0"
+license = "MIT"
+authors = ["Meowtsun"]
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "server"
+
+[dependencies]
